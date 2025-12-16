@@ -27,7 +27,7 @@ import { useState, useEffect } from "react";
 import { FiCopy, FiShare2, FiLink } from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
 import api from "../services/api";
-
+const baseUel=import.meta.env.VITE_FRONTEND_BASE_URL;
 export default function ShareModal({ isOpen, onClose, file }) {
   const { user } = useAuth();
   const [users, setUsers] = useState([]);
@@ -110,7 +110,7 @@ export default function ShareModal({ isOpen, onClose, file }) {
   const generateLink = async () => {
     setIsGeneratingLink(true);
     try {
-      setLink(`http://localhost:5173/public/${file._id}`);
+      setLink(`${baseUel}/public/${file._id}`);
       toast({
         title: "Link Generated",
         description: "Public link created successfully",

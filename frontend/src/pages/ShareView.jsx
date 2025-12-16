@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import FileViewer from "../components/FileViewer";
 import axios from "axios";
-
+const baseUel=import.meta.env.VITE_FRONTEND_BASE_URL;
 export default function ShareView() {
   const { token } = useParams();
   const [file, setFile] = useState(null);
@@ -25,7 +25,7 @@ export default function ShareView() {
 
   const fetchSharedFile = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/share/info/${token}`);
+      const res = await axios.get(`${baseUel}/share/info/${token}`);
       setFile(res.data);
     } catch (err) {
       setError(err.response?.data?.message || "Failed to load shared file");
