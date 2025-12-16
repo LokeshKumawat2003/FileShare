@@ -86,7 +86,7 @@ export default function App() {
         element={<ShareView />}
       />
       <Route
-        path="/public/:id"
+        path="/user/:id"
         element={
           <PrivateRoute>
             <PublicView />

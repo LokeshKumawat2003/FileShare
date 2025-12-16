@@ -110,7 +110,7 @@ export default function ShareModal({ isOpen, onClose, file }) {
   const generateLink = async () => {
     setIsGeneratingLink(true);
     try {
-      setLink(`${baseUel}/public/${file._id}`);
+      setLink(`${baseUel}/user/${file._id}`);
       toast({
         title: "Link Generated",
         description: "Public link created successfully",

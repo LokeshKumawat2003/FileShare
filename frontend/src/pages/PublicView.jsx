@@ -15,6 +15,7 @@ import api from "../services/api";
 
 export default function PublicView() {
   const { id } = useParams();
+  console.log(id)
   const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(true);
