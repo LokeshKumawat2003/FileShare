@@ -7,6 +7,7 @@ import ShareView from "./pages/ShareView";
 import PublicView from "./pages/PublicView";
 import AuditLogPage from "./pages/AuditLogPage";
 import { Box, Spinner, Text } from "@chakra-ui/react";
+import ServerLoader from "./components/ServerLoader";
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth();
@@ -36,18 +37,7 @@ function PublicRoute({ children }) {
 
   if (loading) {
     return (
-      <Box
-        minH="100vh"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        flexDirection="column"
-      >
-        <Spinner size="xl" color="blue.500" />
-        <Text mt={4} color="gray.600">
-          Loading...
-        </Text>
-      </Box>
+     <ServerLoader/>
     );
   }
 
