@@ -159,7 +159,7 @@ export default function FileCard({ file, onShare, onView }) {
                 onClick={handleDownload}
                 flex={1}
               >
-                Download
+                {/* Download */}
               </Button>
             </Tooltip>
           )}

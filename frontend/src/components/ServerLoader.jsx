@@ -1,38 +1,45 @@
 import { Box, Text } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { keyframes } from "@emotion/react"
+
+const fade = keyframes`
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+`
 
 const ServerLoader = () => {
-  const [dots, setDots] = useState("")
-
-  // Animate dots (...)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDots((prev) => (prev.length < 3 ? prev + "." : ""))
-    }, 500)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  // Optional: simulate 5 seconds wait
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log("Server should be ready now")
-    }, 5000)
-
-    return () => clearTimeout(timer)
-  }, [])
-
   return (
     <Box
       minH="100vh"
       display="flex"
+      flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      flexDirection="column"
-      bg="gray.50"
+      bg="white"
     >
-      <Text fontSize="lg" fontWeight="medium" color="gray.600">
-        Server starting, please wait{dots}
+      {/* Dot Loader */}
+      <Box display="flex" gap={4}>
+        {[0, 1, 2, 3, 4].map((i) => (
+          <Box
+            key={i}
+            w="14px"
+            h="14px"
+            borderRadius="full"
+            bg="gray.500"
+            animation={`${fade} 1.5s infinite`}
+            animationDelay={`${i * 0.2}s`}
+          />
+        ))}
+      </Box>
+
+      {/* Text */}
+      <Text
+        mt={6}
+        fontSize="sm"
+        color="gray.500"
+        letterSpacing="wide"
+      >
+        Server starting, please wait
       </Text>
     </Box>
   )

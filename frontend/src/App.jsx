@@ -46,7 +46,9 @@ function PublicRoute({ children }) {
 
 export default function App() {
   return (
-    <Routes>
+<Box>
+      <Routes>
+         
       <Route
         path="/login"
         element={
@@ -92,5 +94,6 @@ export default function App() {
         }
       />
     </Routes>
+</Box>
   );
 }
